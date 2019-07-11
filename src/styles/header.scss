@@ -19,8 +19,21 @@
       cursor: pointer;
       position: relative;
       text-transform: uppercase;
+      text-decoration: none;
       &:hover {
         color: #1871c9;
+      }
+      & > a {
+        color: #333435;
+        font-size: 0.9375rem;
+        font-weight: 700;
+        cursor: pointer;
+        position: relative;
+        text-transform: uppercase;
+        text-decoration: none;
+        &:hover {
+          color: #1871c9;
+        }
       }
     }
     .dropdown-menu {
