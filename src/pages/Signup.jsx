@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import GenericInput from "../components/generic/input";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -9,10 +9,17 @@ import moment from "moment";
 import { useSelector, useDispatch } from "react-redux";
 import * as action from "../redux/actions";
 import Header from "../components/generic/Header";
-import cloneDeep from 'lodash/cloneDeep';
+import cloneDeep from "lodash/cloneDeep";
+import { Spinner } from "reactstrap";
 
-export default function Signup() {
+export default function Signup(props) {
   const dispatch = useDispatch();
+  const signupDetails = useSelector(state => state.signup);
+  useEffect(() => {
+    if (signupDetails.isSuccess) {
+      props.history.push("/app/my-profile");
+    }
+  }, [signupDetails.isSuccess]);
 
   return (
     <>
@@ -161,8 +168,17 @@ export default function Signup() {
                       {errors.dob && touched.dob && errors.dob}
                     </small>
                   </div>
-                  <Button className="sd-button" size="lg" type="submit">
-                    Sign up
+                  <Button
+                    className="sd-button"
+                    size="lg"
+                    type="submit"
+                    disabled={signupDetails.isLoading ? true : false}
+                  >
+                    {signupDetails.isLoading ? (
+                      <Spinner size="md" color="light" />
+                    ) : (
+                      "Sign in"
+                    )}
                   </Button>
                 </form>
               )}
