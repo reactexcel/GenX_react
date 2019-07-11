@@ -20,6 +20,8 @@ const signup = (state = initialState, action) => {
         isSuccess: true,
         message: action.payload.message
       };
+    case constants.LOG_OUT:
+      return { ...state, isSuccess: false };
     default:
       return state;
   }
