@@ -1,6 +1,7 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "./header.scss";
 @import "./profile.scss";
+@import "./friend_family.scss";
 body {
   background-color: #f8f9fb !important;
 }
@@ -43,6 +44,9 @@ body {
 }
 button:disabled {
   cursor: not-allowed;
+}
+.hidden{
+    display: none;
 }
 @media screen and (min-width: 767px) {
   .wrapper {

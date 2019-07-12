@@ -69,6 +69,7 @@ export default function Signup(props) {
               onSubmit={(values, actions) => {
                 let data = cloneDeep(values);
                 delete data.cnfpassword;
+                moment(data.dob).format("YYYY-MM-DDTHH:MM");
                 dispatch(action.signupRequest(data));
               }}
               render={({
@@ -150,17 +151,10 @@ export default function Signup(props) {
                   <div class="mb-2">
                     <DatePicker
                       name="dob"
-                      value={
-                        values.dob
-                          ? moment(values.dob).format("DD-MM-YYYY")
-                          : null
-                      }
+                      selected={values.dob ? values.dob : null}
                       className="form-control"
                       onChange={date => {
-                        setFieldValue(
-                          "dob",
-                          moment(date).format("YYYY-MM-DDTHH:MM")
-                        );
+                        setFieldValue("dob", date);
                       }}
                       placeholderText="Date of birth"
                     />

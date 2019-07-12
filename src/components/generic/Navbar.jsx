@@ -20,7 +20,10 @@ export default function Navbars(props) {
   const dispatch = useDispatch();
   const [isOpen, toggle] = useState(false);
   const userName = useSelector(
-    state => state.profile.data && state.profile.data.first_name
+    state =>
+      state.profile.data &&
+      state.profile.data[0] &&
+      state.profile.data[0].first_name
   );
   return (
     <Navbar className="app-header" light expand="md">
@@ -39,8 +42,8 @@ export default function Navbars(props) {
           </NavItem>
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret className="user-profile">
-              <div class="avatar">2S</div>
-              <div class="user-name">2 {userName}</div>
+              <div className="avatar">2S</div>
+              <div className="user-name">2 {userName}</div>
             </DropdownToggle>
             <DropdownMenu right>
               <Link to="/app/my-profile">

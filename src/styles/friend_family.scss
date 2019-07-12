@@ -1,0 +1,95 @@
+.profile-content {
+  background-color: #fff;
+  margin: 0 auto;
+  position: relative;
+  overflow-x: hidden;
+  transition: opacity 0.5s ease;
+
+  .list-content {
+    padding-top: 0;
+    padding-bottom: 0;
+    @media screen and (min-width: 768px) {
+      padding: 24px 32px;
+      float: left;
+      display: block;
+      // margin-right: 2.0408163265%;
+      width: 100%;
+    }
+    .inner-content {
+      max-width: 74rem;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media screen and (min-width: 768px) {
+        .f-layout {
+          display: flex;
+          flex-flow: row;
+          .f-layout-body {
+            flex: 3 1 auto;
+            order: 2;
+            padding: 0 0 72px 20px;
+            .f-layout-header {
+              align-items: center;
+              font-size: 0.875rem;
+              height: 56px;
+              position: relative;
+            }
+          }
+        }
+      }
+      .f-layout {
+        .f-layout-inner-body {
+          .friend-row {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #e3e5e6;
+            min-height: 100px;
+            cursor: pointer;
+            justify-content: space-between;
+            .friend-detail {
+              display: flex;
+              .avatar {
+                background-color: #6f3598;
+                border-radius: 100%;
+                color: #fff;
+                font-size: 16px;
+                height: 40px;
+                position: relative;
+                text-align: center;
+                text-transform: uppercase;
+                width: 40px;
+                line-height: 40px;
+              }
+            }
+            .friend-connection {
+              width: 65%;
+              .fc-label {
+                color: #333435;
+                line-height: 20px;
+              }
+              .fc-label-detail-color {
+                color: #6b6b6b;
+                font-size: 0.875rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .header-bottom {
+    border-bottom: 3px solid #6f3598;
+  }
+  .align-center {
+    align-items: center;
+  }
+  .star {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    background: url("../star.svg") no-repeat center center;
+    background-size: 18px 18px;
+    vertical-align: sub;
+  }
+}
