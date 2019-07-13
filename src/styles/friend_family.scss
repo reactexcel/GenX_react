@@ -38,6 +38,12 @@
         }
       }
       .f-layout {
+        .f-layout-body {
+          .f-layout-header {
+            padding-top: 12px;
+            padding-bottom: 5px;
+          }
+        }
         .f-layout-inner-body {
           .friend-row {
             display: flex;
@@ -48,6 +54,11 @@
             justify-content: space-between;
             .friend-detail {
               display: flex;
+              .star-containr{
+                @media screen and (max-width: 768px) {
+                  margin-left: 0.5rem;
+                }
+              }
               .avatar {
                 background-color: #6f3598;
                 border-radius: 100%;

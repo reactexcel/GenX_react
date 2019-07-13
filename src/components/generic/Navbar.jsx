@@ -36,9 +36,9 @@ export default function Navbars(props) {
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink>
-              <Link to="/app/tools">FAMILY & FRIENDS</Link>{" "}
-            </NavLink>
+            <Link to="/app/tools" className="nav-link">
+              FAMILY & FRIENDS
+            </Link>
           </NavItem>
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret className="user-profile">

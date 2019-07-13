@@ -4,65 +4,65 @@ import { setLoggedUser, getLoggedUser } from "../../services/generic";
 import fireAjax from "../../services/index";
 import { toast } from "react-toastify";
 
-export function* profileRequest(action) {
+export function* friendProfileRequest(action) {
   try {
-    let { token } = action.payload;
     const response = yield call(
       fireAjax,
       "GET",
-      "profile",
+      `partuser/${action.payload.id}`,
       {},
-      { Authorization: `Token ${token}` }
+      { Authorization: `Token ${getLoggedUser()}` }
     );
     if (response.data) {
-      yield put(actions.profileSuccess(response.data));
+      yield put(actions.friendProfileRequestSuccess(response.data));
     } else {
-      yield put(actions.profileError({}));
+      yield put(actions.friendProfileRequestError({}));
       toast("Error Occurs !!", { type: "error" });
     }
   } catch (e) {
-    yield put(actions.profileError({}));
+    yield put(actions.friendProfileRequestError({}));
     toast("Error Occurs !!", { type: "error" });
   }
 }
 
-export function* dnaUpload(action) {
+export function* chatMsgList(action) {
+  try {
+    const response = yield call(
+      fireAjax,
+      "GET",
+      `chat/${action.payload.id}`,
+      {},
+      { Authorization: `Token ${getLoggedUser()}` }
+    );
+    if (response.data) {
+      yield put(actions.chatMessageListSuccess(response.data));
+    } else {
+      yield put(actions.chatMessageListError({}));
+      toast("Error Occurs !!", { type: "error" });
+    }
+  } catch (e) {
+    yield put(actions.chatMessageListError({}));
+    toast("Error Occurs !!", { type: "error" });
+  }
+}
+
+export function* postChatMsg(action) {
   try {
     const response = yield call(
       fireAjax,
       "POST",
-      "fileupload",
-       action.payload ,
+      `chat/${action.payload.id}`,
+      { message: action.payload.message },
       { Authorization: `Token ${getLoggedUser()}` }
     );
     if (response.data) {
-     yield put(actions.profileRequest({token:getLoggedUser()}))
-      toast("File Upload Successfully", { type: "success" });
+      yield put(actions.getChatMessage({ id: response.data.receiver }));
     } else {
+      // yield put(actions.friendProfileRequestError({}));
       toast("Error Occurs !!", { type: "error" });
     }
   } catch (e) {
-    toast("Error Occurs !!", { type: "error" });
-  }
-}
-
-export function* dnaDelete(action) {
-  
-  try {
-    const response = yield call(
-      fireAjax,
-      "DELETE",
-      `fileupload/${action.payload.id}`,
-       {} ,
-      { Authorization: `Token ${getLoggedUser()}` }
-    );
-    if (response.status == 204) {
-     yield put(actions.profileRequest({token:getLoggedUser()}))
-      toast("File Deleted Successfully", { type: "success" });
-    } else {
-      toast("Error Occurs !!", { type: "error" });
-    }
-  } catch (e) {
+    //   yield put(actions.friendProfileRequestError({}));
     toast("Error Occurs !!", { type: "error" });
   }
 }

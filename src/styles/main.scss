@@ -48,6 +48,9 @@ button:disabled {
 .hidden{
     display: none;
 }
+.sc-user-input--file-icon-wrapper{
+  display: none !important;
+}
 @media screen and (min-width: 767px) {
   .wrapper {
     .auth-narrow {
