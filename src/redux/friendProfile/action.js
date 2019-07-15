@@ -32,7 +32,7 @@ export function* chatMsgList(action) {
       "GET",
       `chat/${action.payload.id}`,
       {},
-      { Authorization: `Token ${action.payload.token}` }
+      { Authorization: `Token ${getLoggedUser()}` }
     );
     if (response.data) {
       yield put(actions.chatMessageListSuccess(response.data));
