@@ -36,11 +36,38 @@ export default function FamilyNFriends(props) {
                         >
                           <div className="friend-detail">
                             <div className="d-flex align-center mr-2 star-containr">
-                              <span className="star" />
+                              <span className="">
+                                {dat.messages.length > 0 ? (
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill={"#ff0000"}
+                                  >
+                                    <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                                  </svg>
+                                ) : (
+                                  <svg
+                                    width="24"
+                                    height="24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                  >
+                                    <path d="M15.668 8.626l8.332 1.159-6.065 5.874 1.48 8.341-7.416-3.997-7.416 3.997 1.481-8.341-6.064-5.874 8.331-1.159 3.668-7.626 3.669 7.626zm-6.67.925l-6.818.948 4.963 4.807-1.212 6.825 6.068-3.271 6.069 3.271-1.212-6.826 4.964-4.806-6.819-.948-3.002-6.241-3.001 6.241z" />
+                                  </svg>
+                                )}
+                              </span>
                             </div>
                             <div className="d-flex align-center">
-                              <div className="avatar mr-2">2S</div>
-                              {dat.first_name + " " + dat.last_name}
+                              <div className="avatar mr-2">
+                                {dat.first_name.charAt(0) +
+                                  dat.last_name.charAt(0)}
+                              </div>
+                              <span className="capitalize">
+                                {dat.first_name + " " + dat.last_name}
+                              </span>
                             </div>
                           </div>
                           <div className="friend-connection">

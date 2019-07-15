@@ -32,7 +32,7 @@ export function* chatMsgList(action) {
       "GET",
       `chat/${action.payload.id}`,
       {},
-      { Authorization: `Token ${getLoggedUser()}` }
+      { Authorization: `Token ${action.payload.token}` }
     );
     if (response.data) {
       yield put(actions.chatMessageListSuccess(response.data));
@@ -42,7 +42,6 @@ export function* chatMsgList(action) {
     }
   } catch (e) {
     yield put(actions.chatMessageListError({}));
-    toast("Error Occurs !!", { type: "error" });
   }
 }
 

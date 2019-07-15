@@ -6,6 +6,7 @@ const initialState = {
   isSuccess: false,
   isError: false,
   friendId: "",
+  isChatLoading: false,
   data: {},
   chatMsg: []
 };
@@ -39,6 +40,11 @@ const friendProfile = (state = initialState, action) => {
         friendId: "",
         data: {}
       };
+    case constants.GET_CHAT_MESSAGE_LIST:
+      return {
+        ...state,
+        isChatLoading: true
+      };
     case constants.GET_CHAT_MESSAGE_LIST_SUCCESSS:
       let chatMsg = [];
       const { friendId } = state;
@@ -65,6 +71,11 @@ const friendProfile = (state = initialState, action) => {
       });
       return {
         ...state,
+        isChatLoading: false,
+        data: {
+          ...state.data,
+          messages: []
+        },
         chatMsg
       };
     default:

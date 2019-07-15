@@ -40,16 +40,29 @@ body {
         width: 100%;
       }
     }
+    .dob_sex_wrapper {
+      display: flex;
+      .dob_ip,
+      .sex_ip {
+        width: 50%;
+      }
+      .dob_ip {
+        padding-right: 5px;
+      }
+    }
   }
 }
 button:disabled {
   cursor: not-allowed;
 }
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
-.sc-user-input--file-icon-wrapper{
+.sc-user-input--file-icon-wrapper {
   display: none !important;
+}
+.capitalize {
+  text-transform: capitalize !important;
 }
 @media screen and (min-width: 767px) {
   .wrapper {

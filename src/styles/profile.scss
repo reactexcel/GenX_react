@@ -99,6 +99,31 @@
         background-color: #1871c9;
         color: #fff;
       }
+      .read-message-button {
+        appearance: none;
+        display: inline-flex;
+        border: 0;
+        border-radius: 100px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-family: "Avenir Next", Helvetica, Roboto, Arial, sans-serif;
+        font-weight: 700;
+        line-height: normal;
+        text-decoration: none;
+        user-select: none;
+        vertical-align: middle;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+        height: 48px;
+        padding: 0 24px;
+        min-width: 120px;
+        font-size: 1rem;
+        background-color: transparent;
+        box-shadow: inset 0 0 0 2px #ff0000;
+        color: #ff0000;
+      }
       .send-message-button {
         appearance: none;
         display: inline-flex;

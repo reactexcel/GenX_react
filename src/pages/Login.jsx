@@ -13,7 +13,7 @@ export default function Login(props) {
   const loginDetails = useSelector(state => state.login);
   useEffect(() => {
     if (loginDetails.isSuccess && !loginDetails.isLogedOut) {
-      props.history.push("/app/my-profile");
+      props.history.push("/app/relatives");
     }
   }, [loginDetails.isSuccess]);
 

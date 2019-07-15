@@ -35,7 +35,8 @@ export default function Signup(props) {
                 email: "",
                 password: "",
                 cnfpassword: "",
-                dob: ""
+                dob: "",
+                sex: ""
               }}
               validate={values => {
                 let errors = {};
@@ -63,6 +64,9 @@ export default function Signup(props) {
                 }
                 if (!values.dob) {
                   errors.dob = "*Required";
+                }
+                if (!values.sex) {
+                  errors.sex = "*Required";
                 }
                 return errors;
               }}
@@ -148,19 +152,38 @@ export default function Signup(props) {
                         errors.cnfpassword}
                     </small>
                   </div>
-                  <div class="mb-2">
-                    <DatePicker
-                      name="dob"
-                      selected={values.dob ? values.dob : null}
-                      className="form-control"
-                      onChange={date => {
-                        setFieldValue("dob", date);
-                      }}
-                      placeholderText="Date of birth"
-                    />
-                    <small className="text-danger">
-                      {errors.dob && touched.dob && errors.dob}
-                    </small>
+                  <div class="dob_sex_wrapper mb-2">
+                    <div className="dob_ip">
+                      <DatePicker
+                        name="dob"
+                        selected={values.dob ? values.dob : null}
+                        className="form-control"
+                        onChange={date => {
+                          setFieldValue("dob", date);
+                        }}
+                        placeholderText="Date of birth"
+                      />
+                      <small className="text-danger">
+                        {errors.dob && touched.dob && errors.dob}
+                      </small>
+                    </div>
+
+                    <div className="sex_ip">
+                      <GenericInput
+                        type="select"
+                        name="sex"
+                        options={[
+                          { name: "Select Sex", value: "" },
+                          { name: "Male", value: "male" },
+                          { name: "Female", value: "female" },
+                          { name: "Other", value: "other" }
+                        ]}
+                        onChange={handleChange}
+                      />
+                      <small className="text-danger">
+                        {errors.sex && touched.sex && errors.sex}
+                      </small>
+                    </div>
                   </div>
                   <Button
                     className="sd-button"
@@ -171,7 +194,7 @@ export default function Signup(props) {
                     {signupDetails.isLoading ? (
                       <Spinner size="md" color="light" />
                     ) : (
-                      "Sign in"
+                      "Sign up"
                     )}
                   </Button>
                 </form>

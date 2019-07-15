@@ -12,7 +12,7 @@ export default function Layout(props) {
       <Navbars history={props.history}/>
 
       <Switch>
-        <Route path="/app/tools" exact component={FamilyNFriends} />
+        <Route path="/app/relatives" exact component={FamilyNFriends} />
         <Route path="/app/my-profile" exact component={Profile} />
         <Route path="/app/friend/:id" exact component={FriendProfile}/>
       </Switch>
