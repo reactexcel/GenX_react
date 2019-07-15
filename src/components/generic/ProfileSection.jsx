@@ -10,8 +10,8 @@ export default function ProfileSection({ data, isButton, onClick }) {
             <div className="basic-info-personal">
               <div className="profile-image">
                 <div className="avatar " data-mdv-id="avatar">
-                  {data.first_name.charAt(0)}
-                  {data.last_name.charAt(0)}
+                  {data.first_name && data.first_name.charAt(0)}
+                  {data.last_name && data.last_name.charAt(0)}
                 </div>
               </div>
               <div className="basic-info-content">
