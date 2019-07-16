@@ -23,7 +23,7 @@ export default function Signup(props) {
 
   return (
     <>
-      <Header />
+      <Header showLoginBtn={false} />
       <div className="wrapper bg-light">
         <div class="auth-narrow">
           <div class="sd-card sd-elevation-1 auth-card bg-white">

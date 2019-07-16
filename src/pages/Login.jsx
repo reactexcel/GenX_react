@@ -19,7 +19,7 @@ export default function Login(props) {
 
   return (
     <>
-      <Header />
+      <Header showLoginBtn={false} />
       <div className="bg-light wrapper">
         <div class="auth-narrow sign-in">
           <div class="sd-card sd-elevation-1 auth-card bg-white">
