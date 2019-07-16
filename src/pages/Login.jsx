@@ -13,13 +13,13 @@ export default function Login(props) {
   const loginDetails = useSelector(state => state.login);
   useEffect(() => {
     if (loginDetails.isSuccess && !loginDetails.isLogedOut) {
-      props.history.push("/app/my-profile");
+      props.history.push("/app/relatives");
     }
   }, [loginDetails.isSuccess]);
 
   return (
     <>
-      <Header />
+      <Header showLoginBtn={false} />
       <div className="bg-light wrapper">
         <div class="auth-narrow sign-in">
           <div class="sd-card sd-elevation-1 auth-card bg-white">

@@ -23,7 +23,7 @@ export default function Signup(props) {
 
   return (
     <>
-      <Header />
+      <Header showLoginBtn={false} />
       <div className="wrapper bg-light">
         <div class="auth-narrow">
           <div class="sd-card sd-elevation-1 auth-card bg-white">
@@ -35,7 +35,8 @@ export default function Signup(props) {
                 email: "",
                 password: "",
                 cnfpassword: "",
-                dob: ""
+                dob: "",
+                sex: ""
               }}
               validate={values => {
                 let errors = {};
@@ -64,11 +65,15 @@ export default function Signup(props) {
                 if (!values.dob) {
                   errors.dob = "*Required";
                 }
+                if (!values.sex) {
+                  errors.sex = "*Required";
+                }
                 return errors;
               }}
               onSubmit={(values, actions) => {
                 let data = cloneDeep(values);
                 delete data.cnfpassword;
+                moment(data.dob).format("YYYY-MM-DDTHH:MM");
                 dispatch(action.signupRequest(data));
               }}
               render={({
@@ -147,26 +152,38 @@ export default function Signup(props) {
                         errors.cnfpassword}
                     </small>
                   </div>
-                  <div class="mb-2">
-                    <DatePicker
-                      name="dob"
-                      value={
-                        values.dob
-                          ? moment(values.dob).format("DD-MM-YYYY")
-                          : null
-                      }
-                      className="form-control"
-                      onChange={date => {
-                        setFieldValue(
-                          "dob",
-                          moment(date).format("YYYY-MM-DDTHH:MM")
-                        );
-                      }}
-                      placeholderText="Date of birth"
-                    />
-                    <small className="text-danger">
-                      {errors.dob && touched.dob && errors.dob}
-                    </small>
+                  <div class="dob_sex_wrapper mb-2">
+                    <div className="dob_ip">
+                      <DatePicker
+                        name="dob"
+                        selected={values.dob ? values.dob : null}
+                        className="form-control"
+                        onChange={date => {
+                          setFieldValue("dob", date);
+                        }}
+                        placeholderText="Date of birth"
+                      />
+                      <small className="text-danger">
+                        {errors.dob && touched.dob && errors.dob}
+                      </small>
+                    </div>
+
+                    <div className="sex_ip">
+                      <GenericInput
+                        type="select"
+                        name="sex"
+                        options={[
+                          { name: "Select Sex", value: "" },
+                          { name: "Male", value: "male" },
+                          { name: "Female", value: "female" },
+                          { name: "Other", value: "other" }
+                        ]}
+                        onChange={handleChange}
+                      />
+                      <small className="text-danger">
+                        {errors.sex && touched.sex && errors.sex}
+                      </small>
+                    </div>
                   </div>
                   <Button
                     className="sd-button"
@@ -177,7 +194,7 @@ export default function Signup(props) {
                     {signupDetails.isLoading ? (
                       <Spinner size="md" color="light" />
                     ) : (
-                      "Sign in"
+                      "Sign up"
                     )}
                   </Button>
                 </form>

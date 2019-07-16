@@ -25,3 +25,44 @@ export function* profileRequest(action) {
     toast("Error Occurs !!", { type: "error" });
   }
 }
+
+export function* dnaUpload(action) {
+  try {
+    const response = yield call(
+      fireAjax,
+      "POST",
+      "fileupload",
+       action.payload ,
+      { Authorization: `Token ${getLoggedUser()}` }
+    );
+    if (response.data) {
+     yield put(actions.profileRequest({token:getLoggedUser()}))
+      toast("File Upload Successfully", { type: "success" });
+    } else {
+      toast("Error Occurs !!", { type: "error" });
+    }
+  } catch (e) {
+    toast("Error Occurs !!", { type: "error" });
+  }
+}
+
+export function* dnaDelete(action) {
+  
+  try {
+    const response = yield call(
+      fireAjax,
+      "DELETE",
+      `fileupload/${action.payload.id}`,
+       {} ,
+      { Authorization: `Token ${getLoggedUser()}` }
+    );
+    if (response.status == 204) {
+     yield put(actions.profileRequest({token:getLoggedUser()}))
+      toast("File Deleted Successfully", { type: "success" });
+    } else {
+      toast("Error Occurs !!", { type: "error" });
+    }
+  } catch (e) {
+    toast("Error Occurs !!", { type: "error" });
+  }
+}

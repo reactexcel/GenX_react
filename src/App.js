@@ -11,6 +11,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from "./components/generic/PrivateRoute";
 import Layout from "./components/layouts/Layout";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
         <Switch>
           <PrivateRoute path="/app" component={Layout} />
           <Route path="/signup" component={Signup} />
-          <Route path="/" component={Login} />
+          <Route path="/login" component={Login} />
+          <Route path="/" component={LandingPage} />
         </Switch>
       </Router>
       <ToastContainer/>

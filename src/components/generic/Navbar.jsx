@@ -20,7 +20,16 @@ export default function Navbars(props) {
   const dispatch = useDispatch();
   const [isOpen, toggle] = useState(false);
   const userName = useSelector(
-    state => state.profile.data && state.profile.data.first_name
+    state =>
+      state.profile.data &&
+      state.profile.data[0] &&
+      state.profile.data[0].first_name
+  );
+  const lastName = useSelector(
+    state =>
+      state.profile.data &&
+      state.profile.data[0] &&
+      state.profile.data[0].last_name
   );
   return (
     <Navbar className="app-header" light expand="md">
@@ -31,16 +40,21 @@ export default function Navbars(props) {
         }}
       />
       <Collapse isOpen={isOpen} navbar>
-        <Nav className="ml-auto" navbar>
+        <Nav className="d-flex justify-content-between navbar-nav w-100" navbar>
           <NavItem>
-            <NavLink>
-              <Link to="/app/tools">FAMILY & FRIENDS</Link>{" "}
-            </NavLink>
+            <Link to="/app/relatives" className="nav-link">
+              Relatives list
+            </Link>
           </NavItem>
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret className="user-profile">
-              <div class="avatar">2S</div>
-              <div class="user-name">2 {userName}</div>
+              <div className="avatar">
+                {userName && userName.charAt(0)}
+                {lastName && lastName.charAt(0)}
+              </div>
+              <div className="user-name">
+                {userName && userName.charAt(0)} {lastName}
+              </div>
             </DropdownToggle>
             <DropdownMenu right>
               <Link to="/app/my-profile">
