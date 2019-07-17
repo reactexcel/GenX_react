@@ -21,7 +21,7 @@ export default function Login(props) {
     <>
       <Header showLoginBtn={false} />
       <div className="bg-light wrapper">
-        <div class="auth-narrow sign-in">
+        <div class="auth-narrow">
           <div class="sd-card sd-elevation-1 auth-card bg-white">
             <h1 className="text-secondary">Sign in</h1>
             <Formik

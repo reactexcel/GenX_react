@@ -189,7 +189,7 @@ button:disabled {
 @media screen and (min-width: 767px) {
   .wrapper {
     .auth-narrow {
-      padding-top: 60px;
+      padding-top: 120px;
       .sd-card {
         position: relative;
         width: 390px;
@@ -197,9 +197,6 @@ button:disabled {
         transform: scaleY(1);
         transform-origin: top;
         transition: 0.3s all ease-in-out;
-      }
-      &.sign-in {
-        padding-top: 120px;
       }
     }
   }

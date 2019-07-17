@@ -203,7 +203,7 @@ export default function Signup(props) {
           </div>
           <section>
             <p class="text-secondary sublink">
-              Already have an account? <Link to="/">Sign in</Link>
+              Already have an account? <Link to="/login">Sign in</Link>
             </p>
           </section>
         </div>
