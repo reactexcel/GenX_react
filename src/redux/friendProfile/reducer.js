@@ -69,15 +69,22 @@ const friendProfile = (state = initialState, action) => {
           });
         }
       });
-      return {
-        ...state,
-        isChatLoading: false,
-        data: {
-          ...state.data,
-          messages: []
-        },
-        chatMsg
-      };
+      if (chatMsg.length != state.chatMsg.length) {
+        return {
+          ...state,
+          isChatLoading: false,
+          data: {
+            ...state.data,
+            messages: []
+          },
+          chatMsg
+        };
+      } else {
+        return {
+          ...state,
+          isChatLoading: false
+        };
+      }
     default:
       return state;
   }

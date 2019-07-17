@@ -34,22 +34,7 @@ export default function FamilyNFriends(props) {
                             props.history.push(`/app/friend/${dat.id}`);
                           }}
                         >
-                          <div className="friend-detail">
-                            <div className="d-flex align-center mr-2 star-containr">
-                              <span className="">
-                                {dat.messages.length > 0 ? (
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill={"#ff0000"}
-                                  >
-                                    <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
-                                  </svg>
-                                ) : null}
-                              </span>
-                            </div>
+                          <div className="friend-detail ml-2">
                             <div className="d-flex align-center">
                               <div className="avatar mr-2">
                                 {dat.first_name.charAt(0) +
@@ -62,11 +47,26 @@ export default function FamilyNFriends(props) {
                           </div>
                           <div className="friend-connection">
                             <div className="fc-label b2">
-                              Third to Fifth Cousin
+                              {dat.degree}'th Cousin
                             </div>
                             <div className="fc-label-detail-color small-detail b3">
-                              0.45% DNA shared, 2 segments
+                              {dat.shared_dna}% DNA shared
                             </div>
+                          </div>
+                          <div className="d-flex align-center mr-2 star-containr">
+                            <span className="">
+                              {dat.messages.length > 0 ? (
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill={"#ff0000"}
+                                >
+                                  <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                                </svg>
+                              ) : null}
+                            </span>
                           </div>
                         </div>
                       );

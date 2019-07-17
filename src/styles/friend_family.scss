@@ -54,6 +54,7 @@
             justify-content: space-between;
             .friend-detail {
               display: flex;
+              width: 35%;
               .star-containr {
                 @media screen and (max-width: 768px) {
                   margin-left: 0.5rem;
@@ -73,7 +74,7 @@
               }
             }
             .friend-connection {
-              width: 65%;
+              width: 55%;
               .fc-label {
                 color: #333435;
                 line-height: 20px;

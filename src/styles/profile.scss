@@ -1,5 +1,9 @@
 .main-content {
   padding-top: 32px;
+  padding-bottom: 8px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+  }
   .basic-info {
     padding-top: 32px;
     .outer-container {
@@ -231,6 +235,32 @@
       }
     }
   }
+  .genetic-info {
+    .profile-card-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 24px;
+    }
+    .genetic-relationship-details {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      .genetic-relationship-section {
+        width: auto;
+        margin-right: 24px;
+        margin-bottom: 16px;
+        @media screen and (min-width: 768px) {
+          margin-right: 48px;
+        }
+      }
+    }
+    .label-content {
+      color: #9f0f7b;
+      font-size: 1.5rem;
+    }
+  }
 }
 @media screen and (min-width: 768px) {
   .main-content {
@@ -335,4 +365,8 @@
   .sd-card {
     padding: 40px !important;
   }
+}
+.label-title {
+  color: #6b6b6b;
+  font-size: 0.875rem;
 }
