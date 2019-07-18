@@ -33,7 +33,7 @@ export default function Navbars(props) {
   );
   return (
     <Navbar className="app-header" light expand="md">
-      <NavbarBrand href="/">GenX</NavbarBrand>
+      <NavbarBrand>GenX</NavbarBrand>
       <NavbarToggler
         onClick={() => {
           toggle(!isOpen);
