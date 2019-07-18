@@ -55,11 +55,6 @@
             .friend-detail {
               display: flex;
               width: 35%;
-              .star-containr {
-                @media screen and (max-width: 768px) {
-                  margin-left: 0.5rem;
-                }
-              }
               .avatar {
                 background-color: #6f3598;
                 border-radius: 100%;
@@ -83,6 +78,9 @@
                 color: #6b6b6b;
                 font-size: 0.875rem;
               }
+            }
+            .star-containr {
+              width: 24px;
             }
           }
         }
