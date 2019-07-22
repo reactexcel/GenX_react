@@ -85,6 +85,8 @@ const friendProfile = (state = initialState, action) => {
           isChatLoading: false
         };
       }
+    case constants.RESET_PROFILE:
+      return initialState;
     default:
       return state;
   }
