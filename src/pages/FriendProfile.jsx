@@ -27,6 +27,7 @@ export default function FriendProfile(props) {
   useEffect(() => {
     return () => {
       clearInterval(chatReq.current);
+      dispatch(action.resetProfile({}));
     };
   }, []);
   return (

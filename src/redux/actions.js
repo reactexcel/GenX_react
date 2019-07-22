@@ -26,6 +26,7 @@ export const getChatMessage = createAction(constants.GET_CHAT_MESSAGE_LIST);
 export const chatMessageListSuccess = createAction(constants.GET_CHAT_MESSAGE_LIST_SUCCESSS);
 export const chatMessageListError = createAction(constants.GET_CHAT_MESSAGE_LIST_ERROR);
 export const postChatMessage = createAction(constants.POST_CHAT_MESSAGE);
+export const resetProfile = createAction(constants.RESET_PROFILE);
 
 
 export const logOut = createAction(constants.LOG_OUT);
