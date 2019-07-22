@@ -53,7 +53,7 @@
             cursor: pointer;
             justify-content: space-between;
             &.empty{
-              cursor: none;
+              cursor: unset;
             }
             .friend-detail {
               display: flex;
