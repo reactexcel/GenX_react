@@ -52,6 +52,9 @@
             min-height: 100px;
             cursor: pointer;
             justify-content: space-between;
+            &.empty{
+              cursor: none;
+            }
             .friend-detail {
               display: flex;
               width: 35%;
